@@ -1,0 +1,139 @@
+﻿<Window x:Class="StudentsGradeTracker.AdminPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsGradeTracker"
+        mc:Ignorable="d"
+        Loaded="AdminPage_Load"
+        Title="AdminPage" Height="450" Width="925">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Add New Teacher">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="344*"/>
+                        <ColumnDefinition Width="575*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,10,16,20">
+                        <Label Content="Name"/>
+                        <TextBox x:Name="txtTeacherName" TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Surname"/>
+                        <TextBox x:Name="txtTeacherSurname" TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Email"/>
+                        <TextBox x:Name="txtTeacherEmail" TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Password"/>
+                        <PasswordBox x:Name="txtTeacherPassword" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Department"/>
+                        <ComboBox Name="cbxDepartment" Width="286" Margin="0,10,0,20" SelectedIndex="0">
+                            <ComboBox.Resources>
+                                <!-- Center align ComboBox items -->
+                                <Style TargetType="ComboBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                </Style>
+                                <!-- Center align ComboBox itself -->
+                                <Style TargetType="ComboBox">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                </Style>
+                            </ComboBox.Resources>
+                            <ComboBoxItem Content="Biology"/>
+                            <ComboBoxItem Content="English"/>
+                            <ComboBoxItem Content="Physics"/>
+                            <ComboBoxItem Content="Mathematics"/>
+                        </ComboBox>
+                        <Button Content="Add Account" Click="BtnAddTeacher_Click" Width="120"/>
+                    </StackPanel>
+                    <DataGrid x:Name="TeachersGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,56,10,20" Grid.Column="1"/>
+                    <Button Content="" Margin="0,10,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="LogOut_Click" Foreground="{x:Null}" Padding="3,1,3,1" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="30">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/126467.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="34" Width="107" Click="SaveTeachers_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add New Student">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="344*"/>
+                        <ColumnDefinition Width="575*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,10,16,20">
+                        <Label Content="Name"/>
+                        <TextBox Name="txtStudentName"  TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Surname"/>
+                        <TextBox Name="txtStudentSurname" TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Email"/>
+                        <TextBox x:Name="txtStudentEmail" TextWrapping="Wrap" Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Password"/>
+                        <PasswordBox x:Name="txtStudentPassword"  Height="26" Margin="0,0,0,10"/>
+
+                        <Label Content="Student Class"/>
+                        <ComboBox Name="cbxStudentClass"  Width="286" Margin="0,10,0,20" SelectedIndex="0">
+                            <ComboBox.Resources>
+                                <!-- Center align ComboBox items -->
+                                <Style TargetType="ComboBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                </Style>
+                                <!-- Center align ComboBox itself -->
+                                <Style TargetType="ComboBox">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                </Style>
+                            </ComboBox.Resources>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                        </ComboBox>
+                        <Button Content="Add Account" Click="BtnAddStudent_Click" Width="120"/>
+                    </StackPanel>
+                    <DataGrid  x:Name="StudentGrid" Margin="21,57,10,20" Grid.Column="1"/>
+                    <Button Content="" Margin="0,10,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="LogOut_Click" Foreground="{x:Null}" Padding="3,1,3,1" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="30">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/126467.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="34" Width="107" Click="SaveStudents_Click"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Add New Admin">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="344*"/>
+                        <ColumnDefinition Width="575*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,10,16,20">
+                        <Label Content="Name"/>
+                        <TextBox Name="txtAdminName"  TextWrapping="Wrap" Height="26" Margin="0,0,0,25"/>
+
+                        <Label Content="Surname"/>
+                        <TextBox Name="txtAdminSurname" TextWrapping="Wrap" Height="26" Margin="0,0,0,25"/>
+
+                        <Label Content="Email"/>
+                        <TextBox x:Name="txtAdminEmail" TextWrapping="Wrap" Height="26" Margin="0,0,0,25"/>
+
+                        <Label Content="Password"/>
+                        <PasswordBox x:Name="txtAdminPassword"  Height="26" Margin="0,0,0,40"/>
+                        <Button Content="Add Account" Click="BtnAddAdmin_Click" Width="120"/>
+                    </StackPanel>
+                    <DataGrid  x:Name="AdminGrid" Margin="21,56,10,20" Grid.Column="1"/>
+                    <Button Content="" Margin="0,10,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="LogOut_Click" Foreground="{x:Null}" Padding="3,1,3,1" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="30">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/126467.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="34" Width="107" Click="SaveAdmins_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
